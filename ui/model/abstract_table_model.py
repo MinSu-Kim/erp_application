@@ -4,9 +4,8 @@ from PyQt5.QtCore import QAbstractTableModel, QVariant, Qt
 
 
 class AbstractTableModel(QAbstractTableModel):
-    def __init__(self, data=None, header=None):
-        self.data = data or [()]
-        self.header = header or [()]
+    def __init__(self, parent=None):
+        super(AbstractTableModel, self).__init__(parent)
 
     def rowCount(self, parent):
         return len(self.data)
