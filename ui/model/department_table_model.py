@@ -4,6 +4,10 @@ from ui.model.abstract_table_model import AbstractTableModel
 
 
 class DepartmentTableModel(AbstractTableModel):
+    def __init__(self, data=None, header=None, parent=None):
+        super(DepartmentTableModel, self).__init__(parent)
+        self.data = data or [()]
+        self.header = header or [()]
 
     def data(self, index, role):
         if not index.isValid():

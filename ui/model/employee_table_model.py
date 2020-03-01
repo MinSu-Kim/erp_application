@@ -4,6 +4,11 @@ from ui.model.abstract_table_model import AbstractTableModel
 
 
 class EmployeeTableModel(AbstractTableModel):
+    def __init__(self, data=None, header=None, parent=None):
+        super(EmployeeTableModel, self).__init__(parent)
+        self.data = data or [()]
+        self.header = header or [()]
+
     # select emp_no, emp_name, title, manager, salary, dept, hire_date, gender from employee
     def data(self, index, role):
         if not index.isValid():

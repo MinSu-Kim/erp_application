@@ -1,5 +1,4 @@
 import inspect
-import logging
 
 from PyQt5.QtWidgets import QApplication
 
@@ -12,19 +11,19 @@ from ui.table_view.abstract_table_view import AbstractTableViewWidget
 class TitleTableViewWidget(AbstractTableViewWidget):
     def __init__(self, parent=None):
         super(TitleTableViewWidget, self).__init__(parent)
-        self.table_header = ['직책 코드', '직책 명']
-        self.table_data = [tuple(title) for title in TitleDao.instance().select_item()]
-        self.model = TitleTableModel(data=self.table_data, header=self.table_header)
+        self.table_header = self.get_header()
+        self.table_data = self.get_data()
+        self.model = self.get_model()
         self.tableView.setModel(self.model)
 
-    # def get_model(self):
-    #     return TitleTableModel(data=self.table_data, header=self.table_header)
-    #
-    # def get_data(self):
-    #     return [tuple(title) for title in TitleDao.instance().select_item()]
-    #
-    # def get_header(self):
-    #     return ['직책 코드', '직책 명']
+    def get_model(self):
+        return TitleTableModel(data=self.table_data, header=self.table_header)
+
+    def get_data(self):
+        return [tuple(title) for title in TitleDao.instance().select_item()]
+
+    def get_header(self):
+        return ['직책 코드', '직책 명']
 
     def get_column_size(self):
         return 100, 100

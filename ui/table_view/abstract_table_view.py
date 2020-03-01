@@ -75,17 +75,17 @@ class AbstractTableViewWidget(QWidget):
         except Exception as err:
             print(err)
 
-    # @abstractmethod
-    # def get_model(self):
-    #     raise NotImplementedError("Subclass must implement abstract method")
-    #
-    # @abstractmethod
-    # def get_data(self):
-    #     raise NotImplementedError("Subclass must implement abstract method")
-    #
-    # @abstractmethod
-    # def get_header(self):
-    #     raise NotImplementedError("Subclass must implement abstract method")
+    @abstractmethod
+    def get_model(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+    @abstractmethod
+    def get_data(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+    @abstractmethod
+    def get_header(self):
+        raise NotImplementedError("Subclass must implement abstract method")
 
     @abstractmethod
     def get_column_size(self):
