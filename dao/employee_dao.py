@@ -46,7 +46,6 @@ class EmployeeDao(Dao, SingleTonInstance):
         return self.do_query(query=sql, kargs=t)
 
     def get_dto(self, **args):
-        print('get_dto ', args)
         return Employee(**args)
 
 

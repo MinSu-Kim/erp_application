@@ -9,7 +9,6 @@ class EmployeeTableModel(AbstractTableModel):
         self.data = data or [()]
         self.header = header or [()]
 
-    # select emp_no, emp_name, title, manager, salary, dept, hire_date, gender from employee
     def data(self, index, role):
         if not index.isValid():
             return QVariant()

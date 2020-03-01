@@ -13,7 +13,6 @@ class TitleContentWidget(QWidget):
 
     def init_component(self, root_layout):
         item_size = QSize(0, 40)
-
         self.lbl_no = QLabel('직책번호', self)
         self.lbl_no.setAlignment(Qt.AlignCenter)
         self.lbl_no.setMinimumSize(item_size)
@@ -39,14 +38,11 @@ class TitleContentWidget(QWidget):
         try:
             title_name = self.le_name.text()
             title_no = self.le_no.text()
-            title = Title(**{'title_no': int(title_no), 'title_name': title_name})
-            print(title)
-            return title;
+            return Title(title_no, title_name);
         except Exception as err:
             print(err)
 
     def set_item(self, title):
-        print('set_item', title)
         self.le_no.setText(str(title.title_no))
         self.le_name.setText(title.title_name)
 
@@ -54,9 +50,9 @@ class TitleContentWidget(QWidget):
         self.le_no.setText('')
         self.le_name.setText('')
 
+
 if __name__ == '__main__':
     app = QApplication([])
-    # d = DepartmentTableViewWidget()
     t = TitleContentWidget()
     t.show()
     app.exec()

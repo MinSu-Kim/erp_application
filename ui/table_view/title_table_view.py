@@ -37,14 +37,6 @@ class TitleTableViewWidget(AbstractTableViewWidget):
 
 
 if __name__ == '__main__':
-    import json
-    import logging.config
-    import pkg_resources
-
-    config = json.load(open(pkg_resources.resource_filename('resources', 'logger.json')))
-    logging.config.dictConfig(config)
-    logger = logging.getLogger(__name__)
-
     app = QApplication([])
     # d = DepartmentTableViewWidget()
     t = TitleTableViewWidget()

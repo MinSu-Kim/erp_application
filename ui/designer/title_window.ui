@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>463</width>
-    <height>737</height>
+    <height>488</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,17 +16,17 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="TitleContentWidget" name="item_widget" native="true">
+     <widget class="TitleContent" name="content" native="true">
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>200</height>
+        <height>0</height>
        </size>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="widget" native="true">
+     <widget class="QWidget" name="btns" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <spacer name="horizontalSpacer">
@@ -59,14 +59,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QTableView" name="tableView">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>400</height>
-       </size>
-      </property>
-     </widget>
+     <widget class="TitleTableViewWidget" name="table" native="true"/>
     </item>
    </layout>
   </widget>
@@ -84,9 +77,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TitleContentWidget</class>
+   <class>TitleContent</class>
    <extends>QWidget</extends>
-   <header location="global">ui/content/title_content_view.h</header>
+   <header>ui/designer/ui_title_content.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TitleTableViewWidget</class>
+   <extends>QWidget</extends>
+   <header>ui/table_view/title_table_view.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

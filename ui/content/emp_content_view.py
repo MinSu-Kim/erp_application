@@ -9,8 +9,8 @@ from dto.dto_emp import Employee
 
 
 class EmployeeContentWidget(QWidget):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super(EmployeeContentWidget, self).__init__(parent)
         root_layout = QBoxLayout(QBoxLayout.TopToBottom)
         self.setLayout(root_layout)
         self.init_component(root_layout)
