@@ -8,13 +8,12 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import *
 
 from dao.department_dao import DepartmentDao
-from dao.title_dao import TitleDao
 
 
 class DepartmentWidget(QWidget):
     def __init__(self, parent=None):
         super(DepartmentWidget, self).__init__(parent)
-        ui_path = pkg_resources.resource_filename('ui', 'designer/department_widget.ui')
+        ui_path = pkg_resources.resource_filename('ui', 'designer/widget_department.ui')
         self.ui = uic.loadUi(ui_path, self)
         self.dept_item = self.ui.item
         self.dept_table = self.ui.table

@@ -29,17 +29,17 @@ class EmployeeTableViewWidget(AbstractTableViewWidget):
         return 40, 50, 40, 50, 40, 50, 40, 50, 50
 
     def get_dto(self, tuple_item):
-        self.logger.info("\n{}({})".format(inspect.stack()[0][3], tuple_item))
+        print("\n{}({})".format(inspect.stack()[0][3], tuple_item))
         # emp_no, emp_name, title, manager, salary, dept, hire_date, gender, if (pic is not null, 1, 0) as pic
         emp = Employee()
         emp.emp_no = tuple_item[0]
         emp.emp_name = tuple_item[1]
-        emp.title = tuple_item[2]
-        emp.manager = tuple_item[3]
-        emp.salary = tuple_item[4]
-        emp.dept = tuple_item[5]
-        emp.hire_date = tuple_item[6]
-        emp.gender = tuple_item[7]
+        emp.gender = tuple_item[2]
+        emp.dept = tuple_item[3]
+        emp.manager = tuple_item[4]
+        emp.salary = tuple_item[5]
+        emp.title = tuple_item[6]
+        emp.hire_date = tuple_item[7]
         emp.pic = tuple_item[8]
         return emp
 

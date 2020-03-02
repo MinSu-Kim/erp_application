@@ -48,17 +48,17 @@ class AbstractTableViewWidget(QWidget):
         except Exception as err:
             print(err)
 
-    def add_item(self, title):
-        self.logger.info("\n{}({})".format(inspect.stack()[0][3], title))
+    def add_item(self, item):
+        print("\n{}({})".format(inspect.stack()[0][3], item))
         try:
-            self.table_data.append(tuple(title))
+            self.table_data.append(tuple(item))
             self.model.insertRow(len(self.table_data) + 1)
             self.model.layoutChanged.emit()
         except Exception as err:
             print(err)
 
     def get_selected_item(self):
-        self.logger.info("\n{}() ".format(inspect.stack()[0][3]))
+        print("\n{}() ".format(inspect.stack()[0][3]))
         try:
             selected_row_index = self.tableView.selectedIndexes()[0].row()
             tuple_item = self.table_data[selected_row_index]  # tuple

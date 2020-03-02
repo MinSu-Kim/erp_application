@@ -13,7 +13,7 @@ from dao.title_dao import TitleDao
 class TitleWidget(QWidget):
     def __init__(self, parent=None):
         super(TitleWidget, self).__init__(parent)
-        ui_path = pkg_resources.resource_filename('ui', 'designer/title_widget.ui')
+        ui_path = pkg_resources.resource_filename('ui', 'designer/widget_title.ui')
         self.ui = uic.loadUi(ui_path, self)
         self.title_item = self.ui.title_item
         self.table_view = self.ui.title_table

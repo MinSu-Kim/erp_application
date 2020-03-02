@@ -1,3 +1,4 @@
+import pkg_resources
 from PyQt5.QtCore import Qt, QSize, QDate, QBuffer, QByteArray, QIODevice
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import *
@@ -17,7 +18,7 @@ class EmployeeContentWidget(QWidget):
 
     def init_component(self, root_layout):
         item_size = QSize(150, 40)
-        self.file_name = 'no_img.png'
+        self.file_name = pkg_resources.resource_filename('resources', 'no_img.png')
 
         self.lbl_no = QLabel('사원 번호', self)
         self.lbl_no.setAlignment(Qt.AlignCenter)

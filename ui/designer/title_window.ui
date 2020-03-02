@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="TitleContent" name="content" native="true">
+     <widget class="EmployeeContent" name="content" native="true">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -59,7 +59,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TitleTableViewWidget" name="table" native="true"/>
+     <widget class="EmployeeTableViewWidget" name="table" native="true"/>
     </item>
    </layout>
   </widget>
@@ -77,15 +77,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TitleContent</class>
+   <class>EmployeeContent</class>
    <extends>QWidget</extends>
-   <header>ui/designer/ui_title_content.h</header>
+   <header>ui/designer/ui_content_employee.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TitleTableViewWidget</class>
+   <class>EmployeeTableViewWidget</class>
    <extends>QWidget</extends>
-   <header>ui/table_view/title_table_view.h</header>
+   <header>ui/table_view/employee_table_view.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

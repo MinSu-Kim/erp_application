@@ -52,7 +52,7 @@ class EmployeeContent(QWidget):
         for dept in self.dept_list:
             if value == dept.dept_name:
                 self.mgn_list_by_dept = EmployeeDao.instance().select_item(
-                    sql='select emp_no, emp_name, dept from employee where dept = %s or manager is null', dto=dept)
+                    sql='select emp_no, emp_name, dept from employee where dept = %s or title = 1', dto=dept)
                 mgn_list = ['{}({})'.format(mgr.emp_name, mgr.emp_no) for mgr in self.mgn_list_by_dept]
                 self.ui.cb_manager.clear()
                 self.ui.cb_manager.addItems(mgn_list)
@@ -70,8 +70,7 @@ class EmployeeContent(QWidget):
             emp.gender = 1 if self.ui.rb_male.isChecked() else 0
             emp.dept = [dept.dept_no for dept in self.dept_list if self.ui.cb_dept.currentText() == dept.dept_name][0]
             emp.manager = int(self.ui.cb_manager.currentText()[4:-1])  # '조민희(1003)'-> 1003
-            emp.title = \
-            [title.title_no for title in self.title_list if self.ui.cb_title.currentText() == title.title_name][0]
+            emp.title = [title.title_no for title in self.title_list if self.ui.cb_title.currentText() == title.title_name][0]
 
             ba = QByteArray()
             buff = QBuffer(ba)
@@ -115,7 +114,7 @@ class EmployeeContent(QWidget):
                 emp = EmployeeDao.instance().select_pic_by_empno(dto=emp)[0]
                 emp_pic.loadFromData(emp.pic)
             else:
-                emp_pic = QPixmap('no_img.png')
+                emp_pic = QPixmap(pkg_resources.resource_filename('resources', 'no_img.png'))
             self.ui.lbl_img.setPixmap(emp_pic.scaled(100, 150, Qt.KeepAspectRatio))
         except Exception as err:
             print(err)
@@ -135,7 +134,7 @@ class EmployeeContent(QWidget):
         self.ui.cb_manager.clear()
         self.ui.cb_manager.setCurrentIndex(-1)
         self.ui.cb_title.setCurrentIndex(-1)
-        pixmap = QPixmap('no_img.png')
+        pixmap = QPixmap(pkg_resources.resource_filename('resources', 'no_img.png'))
         self.ui.lbl_img.setPixmap(pixmap.scaled(100, 150, Qt.KeepAspectRatio))
 
 

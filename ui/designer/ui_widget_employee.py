@@ -12,7 +12,7 @@ from dao.employee_dao import EmployeeDao
 class EmployeeWidget(QWidget):
     def __init__(self, parent=None):
         super(EmployeeWidget, self).__init__(parent)
-        ui_path = pkg_resources.resource_filename('ui', 'designer/employee_widget.ui')
+        ui_path = pkg_resources.resource_filename('ui', 'designer/widget_employee.ui')
         self.ui = uic.loadUi(ui_path, self)
         self.employee_item = self.ui.item
         self.employee_table = self.ui.table
@@ -25,22 +25,25 @@ class EmployeeWidget(QWidget):
         if self.ui.btn_add.text() == '추가':
             try:
                 EmployeeDao.instance().insert_item(dto=employee)
+                employee.pic = 0 if employee.pic is None else 1
                 self.employee_table.add_item(employee)
                 self.employee_item.clear_line_edit()
             except Exception as err:
-                raise err
+                print(err)
         else:
             try:
                 EmployeeDao.instance().update_item(dto=employee)
+                employee.pic = 0 if employee.pic is None else 1
                 self.employee_table.update_item(self.set_table_idx, employee)
                 self.ui.btn_add.setText('추가')
                 self.employee_item.clear_line_edit()
             except Exception as err:
-                raise err
+                print(err)
 
     @pyqtSlot()
     def execCancel(self):
         self.employee_item.clear_line_edit()
+        self.ui.add_btn.setText('추가')
 
     def set_context_menu(self, tv):
         tv.setContextMenuPolicy(Qt.ActionsContextMenu)

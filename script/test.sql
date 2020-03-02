@@ -9,3 +9,5 @@ delete from employee where emp_no = 1004
 
 
 select emp_no, emp_name, title, manager, salary, dept, hire_date, gender, if (pic is not null, 1, 0) as pic from employee;
+
+select emp_no, emp_name, dept from employee where dept = 1 or title = 1;
