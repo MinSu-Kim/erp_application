@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>651</width>
+    <height>314</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ERP Program</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="TitleWidget" name="title">
+       <attribute name="title">
+        <string>직책관리</string>
+       </attribute>
+      </widget>
+      <widget class="DepartmentWidget" name="dept">
+       <attribute name="title">
+        <string>부서 관리</string>
+       </attribute>
+      </widget>
+      <widget class="EmployeeWidget" name="emp">
+       <attribute name="title">
+        <string>사원관리</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>651</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TitleWidget</class>
+   <extends>QWidget</extends>
+   <header>ui/designer/ui_widget_title.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DepartmentWidget</class>
+   <extends>QWidget</extends>
+   <header>ui/designer/ui_widget_department.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>EmployeeWidget</class>
+   <extends>QWidget</extends>
+   <header>ui/designer/ui_widget_employee.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

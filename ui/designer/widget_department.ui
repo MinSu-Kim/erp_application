@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>department_form</class>
+ <widget class="QWidget" name="department_form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>465</width>
+    <height>523</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>부서 관리</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="DepartmentContent" name="item" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>200</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btn_add">
+         <property name="text">
+          <string>추가</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_cancel">
+         <property name="text">
+          <string>취소</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="DepartmentTableViewWidget" name="table" native="true"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DepartmentContent</class>
+   <extends>QWidget</extends>
+   <header>ui/designer/ui_content_department.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DepartmentTableViewWidget</class>
+   <extends>QWidget</extends>
+   <header>ui/table_view/department_table_view.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_add</sender>
+   <signal>clicked()</signal>
+   <receiver>department_form</receiver>
+   <slot>execAddOrUpdate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>department_form</receiver>
+   <slot>execCancel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>442</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>462</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>execAddOrUpdate()</slot>
+  <slot>execCancel()</slot>
+ </slots>
+</ui>
